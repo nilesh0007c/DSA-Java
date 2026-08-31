@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class AssignmentQue {
     
@@ -16,6 +16,33 @@ public class AssignmentQue {
         return count;
     } 
 
+    public static boolean isAnagrams(String str1, String str2){
+
+        // Convert both strings to lowercase
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+
+        if(str1.length() == str2.length()){
+
+            // convert string into char array
+            char[] str1charArray = str1.toCharArray();
+            char[]  str2charArray = str2.toCharArray();
+
+            // sort the char array
+            Arrays.sort(str1charArray);
+            Arrays.sort(str2charArray);
+
+            boolean result = Arrays.equals(str1charArray, str2charArray);
+
+            if(result){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
 
     public static void main(String args[]){
 
@@ -26,7 +53,14 @@ public class AssignmentQue {
         // String str2="ShradhaDidi";
         // System.out.println(str.equals(str1) +" "+str.equals(str2));
 
-        String str="ApnaCollege".replace("e","");
-        System.out.println(str);
+        // String str="ApnaCollege".replace("e","");
+        // System.out.println(str);
+
+
+        // Find Strings are anagrams or not
+        String str1 ="race0";
+        String str2 ="care";
+        System.out.println(str1+" and "+str2+" are anagrams of eachother is "+isAnagrams(str1,str2)+".");
+
     }
 }
