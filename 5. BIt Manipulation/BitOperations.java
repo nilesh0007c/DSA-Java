@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class BitOperations {
     
     // Get ith bit
@@ -51,6 +53,20 @@ public class BitOperations {
         return n & bitMask; 
     }
 
+    // Fast Exponentiation
+    public static int fastExpo(int a, int n){
+        int ans = 1;
+        while(n > 0){
+            if((n & 1) != 0){
+                ans = ans * a;
+            }
+            a = a * a;
+            n = n >> 1;
+        }
+        return ans;
+    }
+
+
     public static void main(String args[]){
         
         System.out.println(getIthBit(10,2));                 //call function getIthBit
@@ -59,5 +75,6 @@ public class BitOperations {
         System.out.println(updateIthBit(20,4,0));    //call function updateIthBit
         System.out.println(clearIBits(5,2));                //call function clearIBits
         System.out.println(clearBitsinRange(20,2,5));    //call function clearBitsinRange
+        System.out.println(fastExpo(3,5));                  //call function fastExpo
     }
 }
